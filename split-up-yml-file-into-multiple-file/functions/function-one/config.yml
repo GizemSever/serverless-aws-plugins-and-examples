@@ -1,0 +1,5 @@
+handler: functions/functions-one/handler.handle
+events:
+    - http:
+        method: 'post'
+        path: /Request/Hello

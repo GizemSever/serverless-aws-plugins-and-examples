@@ -1,0 +1,11 @@
+service: app
+
+provider:
+	name: aws
+	runtime: nodejs12.x
+    httpApi:
+        cors: true
+
+functions:
+	hello: ${file(functions/function-one/config.yml)}
+    world: ${file(functions/function-two/config.yml)}
