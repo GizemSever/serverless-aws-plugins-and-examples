@@ -1,0 +1,10 @@
+service: app
+
+provider:
+	name: aws
+	runtime: nodejs12.x
+	region: ${file(vars.js):region} # region from vars.js file
+
+functions:
+	hello:
+		handler: handler.hello

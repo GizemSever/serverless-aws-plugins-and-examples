@@ -1,0 +1,25 @@
+service: app
+
+provider:
+	name: aws
+	runtime: nodejs12.x
+	region: ${file(vars.js):region} # region from vars.js file
+
+layers:
+    vendor:
+      models:
+          path: Models
+functions:
+	hello:
+		handler: functions/handler.handle
+    layers:
+        - {Ref: ModelsLambdaLayer} # {layerName}LambdaLayer
+    package:
+      patterns:
+        - 'functions/function-one/**' # include a path
+
+package:
+    individually: true
+    patterns:
+      - '!Models/**'
+      - '!functions/**' # exclude e path

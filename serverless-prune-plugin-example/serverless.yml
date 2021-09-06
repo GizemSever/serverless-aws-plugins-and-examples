@@ -1,0 +1,14 @@
+service: app
+
+provider:
+	name: aws
+	runtime: nodejs12.x
+
+plugins:
+    - serverless-prune-plugin
+
+custom:
+    prune:
+        automatic: true # Should pruning be applied on every deploy?
+        includeLayers: true # Should layers be included in version pruning?
+        number: 3 # Except for how many versions you deployed last, should pruning be done?

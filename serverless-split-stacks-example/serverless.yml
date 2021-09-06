@@ -1,0 +1,14 @@
+service: app
+
+provider:
+	name: aws
+	runtime: nodejs12.x
+
+plugins:
+    - serverless-plugin-split-stacks
+
+custom:
+    splitStacks: # Creates a nested stack for each lambda resource configuration
+        perFunction: false
+        perType: true
+        perGroupFunction: false

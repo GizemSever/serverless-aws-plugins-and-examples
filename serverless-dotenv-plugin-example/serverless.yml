@@ -1,0 +1,9 @@
+service: app
+
+provider:
+	name: aws
+	runtime: nodejs12.x
+    region: ${env:REGION}
+
+plugins:
+    - serverless-dotenv-plugin
